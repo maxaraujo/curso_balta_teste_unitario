@@ -49,5 +49,10 @@ namespace Store.Domain.Entities
             if(amount == Total())
                 this.Status = EOrderStatus.WaitingDelivery;
         }
+
+        public void Cancel()
+        {
+            this.Status = EOrderStatus.Canceled;
+        }
     }
 }
