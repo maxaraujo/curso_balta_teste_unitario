@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
 using Flunt.Notifications;
 
-namespace Store.Domain.Entites 
+namespace Store.Domain.Entites
 {
     public class Entity : Notifiable
     {
