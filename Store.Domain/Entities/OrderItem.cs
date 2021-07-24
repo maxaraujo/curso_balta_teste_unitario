@@ -1,3 +1,4 @@
+using Flunt.Validations;
 using Store.Domain.Entites;
 
 namespace Store.Domain.Entities
@@ -6,6 +7,12 @@ namespace Store.Domain.Entities
     {
         public OrderItem(Product product, int quantity)
         {
+            AddNotifications(
+                new Contract()
+                    .IsNotNull(product, "Product", "Produto inválido")
+                    .IsGreaterThan(quantity, 0,"Quantity", "A quantidade deve ser maior que zero")
+            );
+            
             Product = product;
             Price = product != null ? product.Price : 0;
             Quantity = quantity;
