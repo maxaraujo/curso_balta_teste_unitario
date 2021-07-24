@@ -5,7 +5,7 @@ using Store.Domain.Enum;
 
 namespace Store.Domain.Entities
 {
-    public class Order
+    public class Order : Entity
     {
         public Order(Customer customer, decimal deliveryFee, Discount discount)
         {
