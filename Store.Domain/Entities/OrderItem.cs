@@ -1,4 +1,4 @@
-using System;
+using Store.Domain.Entites;
 
 namespace Store.Domain.Entities
 {

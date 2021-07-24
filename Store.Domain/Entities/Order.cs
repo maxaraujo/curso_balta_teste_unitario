@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using Store.Domain.Entites;
+using Store.Domain.Enum;
 
 namespace Store.Domain.Entities
 {
@@ -16,15 +20,16 @@ namespace Store.Domain.Entities
         public Customer Customer { get; private set; }
         public DateTime Date { get; private set; }
         public string Number { get; private set; }
-        public IList<OrderItem> Items { get; private set; }
-
+        public List<OrderItem> Items { get; private set; }
         public decimal DeliveryFee { get; private set; }
         public EOrderStatus Status { get; private set; }
+
+        public Discount Discount { get; private set; }
 
         public void AddItem(Product product, int quantity)
         {
             var item = new OrderItem(product, quantity);
-            Items.add(item);
+            Items.Add(item);
         }
 
         public decimal Total()

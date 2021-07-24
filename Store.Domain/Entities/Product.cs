@@ -1,3 +1,5 @@
+using Store.Domain.Entites;
+
 namespace Store.Domain.Entities
 {
     public class Product : Entity
