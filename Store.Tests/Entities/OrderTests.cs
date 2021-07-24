@@ -80,5 +80,16 @@ namespace Store.Tests.Entities
 
             Assert.AreEqual(order.Total(), 210);
         }
+
+        [TestMethod]
+        [TestCategory("Domain")]
+        public void Dado_um_desconto_expirado_o_valor_do_pedido_deve_ser_210()
+        {
+            Discount discount = new Discount(10, DateTime.Now.AddDays(-5));
+            var order = new Order(_customer, 10, discount);
+            order.AddItem(_product, 2);
+
+            Assert.AreEqual(order.Total(), 210);
+        }
     }
 }
