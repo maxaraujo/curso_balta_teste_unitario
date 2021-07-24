@@ -1,6 +1,7 @@
 using System;
+using Store.Domain.Entites;
 
-namespace Store.Domain.Entites
+namespace Store.Domain.Entities
 {
     public class Discount : Entity
     {
