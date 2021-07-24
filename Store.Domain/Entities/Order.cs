@@ -21,6 +21,7 @@ namespace Store.Domain.Entities
             DeliveryFee = deliveryFee;
             Discount = discount;
             Items = new List<OrderItem>();
+            Status = EOrderStatus.WaitingPayment;
         }
 
         public Customer Customer { get; private set; }
