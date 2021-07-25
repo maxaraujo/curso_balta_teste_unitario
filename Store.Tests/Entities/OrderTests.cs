@@ -59,7 +59,7 @@ namespace Store.Tests.Entities
 
             Assert.AreEqual(order.Items.Count, 0);
         }
-        
+
         [TestMethod]
         [TestCategory("Domain")]
         public void Dado_um_novo_item_com_quantidade_igual_ou_menor_que_zero_o_mesmo_nao_deve_ser_adicionado()
@@ -121,8 +121,23 @@ namespace Store.Tests.Entities
 
             Assert.AreEqual(order.Total(), 190);
         }
+        [TestMethod]
+        [TestCategory("Domain")]
+        public void Dado_uma_taxa_de_entrega_de_10_o_valor_pedido_deve_ser_110()
+        {
+            var order = new Order(_customer, 10, null);
+            order.AddItem(_product, 1);
 
+            Assert.AreEqual(order.Total(), 110);
+        }
 
+        [TestMethod]
+        [TestCategory("Domain")]
+        public void Dado_um_pedido_sem_cliente_o_mesmo_deve_ser_invalido()
+        {
+            var order = new Order(null, 0, null);
 
+            Assert.AreEqual(order.Valid, false);
+        }
     }
 }
