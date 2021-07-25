@@ -91,5 +91,26 @@ namespace Store.Tests.Entities
 
             Assert.AreEqual(order.Total(), 210);
         }
+
+        [TestMethod]
+        [TestCategory("Domain")]
+        public void Dado_um_desconto_de_10_o_valor_do_pedido_deve_ser_200()
+        {
+            var order = new Order(_customer, 10, _discount);
+            order.AddItem(_product, 2);
+
+            Assert.AreEqual(order.Total(), 200);
+        }
+
+        [TestMethod]
+        [TestCategory("Domain")]
+        public void Dado_um_desconto_invalido_o_valor_do_pedido_deve_ser_100()
+        {
+            var order = new Order(_customer, 0, null);
+            order.AddItem(_product, 1);
+
+            Assert.AreEqual(order.Total(), 100);
+        }
+
     }
 }
