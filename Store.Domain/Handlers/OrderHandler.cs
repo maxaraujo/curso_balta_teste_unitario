@@ -23,12 +23,14 @@ namespace Store.Domain.Handlers
             ICustomerRepository customerRepository,
             IDeliveryFeeRepository deliveryFeeRepository,
             IDiscountRepository discountRepository,
-            IOrderRepository orderRepository)
+            IOrderRepository orderRepository,
+            IProductRepository productRepository)
         {
             _customerRepository = customerRepository;
             _deliveryFeeRepository = deliveryFeeRepository;
             _discountRepository = discountRepository;
             _orderRepository = orderRepository;
+            _productRepository = productRepository;
         }
         public ICommandResult Handle(CreateOrderCommand command)
         {
